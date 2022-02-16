@@ -38,28 +38,30 @@ def to_usd(my_price):
 
 
 
+while True:
+    # ASK FOR USER INPUT
 
-# ASK FOR USER INPUT
+    product_id = input("Please input a product identifier: ")
+    print(product_id) #> "9"
+    print(type(product_id)) #> string
 
-product_id = input("Please input a product identifier: ")
-print(product_id) #> "9"
-print(type(product_id)) #> string
+    if product_id =="DONE":
+        break
+    
+    # LOOK UP CORRESPONDING PRODUCTS
 
+    # print product that has an ide attribute equal to "9"
 
-# LOOK UP CORRESPONDING PRODUCTS
+    matching_products = []
 
-# print product that has an ide attribute equal to "9"
-
-matching_products = []
-
-for x in products:
-    #if x== 3:
-    #    ___.append(X)
-    #print(x)
-    #print(x["id"])
-    if str(x["id"]) == str(product_id):
-        # this is a match
-        matching_products.append(x)
+    for x in products:
+        #if x== 3:
+        #    ___.append(X)
+        #print(x)
+        #print(x["id"])
+        if str(x["id"]) == str(product_id):
+            # this is a match
+            matching_products.append(x)
 
 print(matching_products)
 print(type(matching_products))
