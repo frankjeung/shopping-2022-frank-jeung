@@ -1,6 +1,9 @@
 # shopping_cart.py
 # Received help from https://www.youtube.com/watch?v=3BaGb-1cIr0
 
+from re import X
+
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -44,10 +47,19 @@ total = 0
 total_price = 0
 selected_ids = []
 
+
 while True:
+    x = False
     selected_id = input("Please input a product identifier: ") #> "9" (string)
+    
+    for n in products: 
+        if str(n["id"]) == str(selected_id):
+            x = True
+
     if selected_id == "DONE":
         break
+    elif x == False:
+        print("Hey, are you sure that product identifier is correct? Please try again!")        
     else:
         selected_ids.append(selected_id)
 
