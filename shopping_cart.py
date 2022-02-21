@@ -77,6 +77,8 @@ print("---------------------------------")
 from datetime import datetime
 print("CHECKOUT AT: " + datetime.today().strftime("%Y-%m-%d %I:%M %p"))
 
+email_list = []
+
 print("---------------------------------")
 print("SELECTED PRODUCTS: ")
 for selected_id in selected_ids:
@@ -84,6 +86,7 @@ for selected_id in selected_ids:
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
     print("... " + matching_product["name"] + " " + "(" + str(to_usd(matching_product["price"])) + ")")
+    email_list.append({"id": selected_id , "name": matching_product["name"]})
 
 print("---------------------------------")
 print("SUBTOTAL: " + str(to_usd(total_price)))
@@ -125,15 +128,9 @@ SENDER_ADDRESS = os.getenv("SENDER_ADDRESS", default="OOPS, please set env var c
 
 # this must match the test data structure
 template_data = {
-    "total_price_usd": "$14.95",
-    "human_friendly_timestamp": "June 1st, 2019 10:00 AM",
-    "products":[
-        {"id":1, "name": "Product 1"},
-        {"id":2, "name": "Product 2"},
-        {"id":3, "name": "Product 3"},
-        {"id":2, "name": "Product 2"},
-        {"id":1, "name": "Product 1"}
-    ]
+    "total_price_usd": str(to_usd(total)),
+    "human_friendly_timestamp": datetime.today().strftime("%Y-%m-%d %I:%M %p"),
+    "products": email_list
 } # or construct this dictionary dynamically based on the results of some other process :-D
 
 client = SendGridAPIClient(SENDGRID_API_KEY)
