@@ -1,4 +1,5 @@
 # shopping_cart.py
+# Received help from https://www.youtube.com/watch?v=3BaGb-1cIr0
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -39,27 +40,48 @@ def to_usd(my_price):
 # INFO CAPTURE / INPUT
 #
 
+total = 0
 total_price = 0
 selected_ids = []
 
 while True:
-    selected_id = input("Please input a product identifier") #> "9" (string)
+    selected_id = input("Please input a product identifier: ") #> "9" (string)
     if selected_id == "DONE":
         break
     else:
         selected_ids.append(selected_id)
 
 #
-# INFO DISPLAY / OTUPUT
+# INFO DISPLAY / OUTPUT
 #
 
-for selected_id in selected_ids
+print("---------------------------------")
+print("TOTAL FOODS GROCERY")
+print("WWW.TOTAL-FOODS-GROCERY.COM")
+
+print("---------------------------------")
+#Received help from https://stackoverflow.com/questions/1759455/how-can-i-account-for-period-am-pm-using-strftime
+from datetime import datetime
+print("CHECKOUT AT: " + datetime.today().strftime("%Y-%m-%d %I:%M %p"))
+
+print("---------------------------------")
+print("SELECTED PRODUCTS: ")
+for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"])
+    print("... " + matching_product["name"] + " " + "(" + str(to_usd(matching_product["price"])) + ")")
 
-print("TOTAL PRICE: " + str(total_price))
+print("---------------------------------")
+print("SUBTOTAL: " + str(to_usd(total_price)))
+tax_owed = total_price*0.0875
+print("TAX: " + str(to_usd(tax_owed)))
+total = total_price + tax_owed
+print("TOTAL: " + str(to_usd(total)))
+
+print("---------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("---------------------------------")
 
 # A grocery store name of your choice
 # A grocery store phone number and/or website URL and/or address of choice
