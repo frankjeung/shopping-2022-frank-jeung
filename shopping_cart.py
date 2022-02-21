@@ -40,24 +40,27 @@ def to_usd(my_price):
 #
 
 total_price = 0
+selected_ids = []
 
 while True:
     selected_id = input("Please input a product identifier") #> "9" (string)
     if selected_id == "DONE":
         break
     else:
-        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-        matching_product = matching_products[0]
-        total_price = total_price + matching_product["price"]
-        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"])
+        selected_ids.append(selected_id)
 
 #
 # INFO DISPLAY / OTUPUT
 #
 
-
+for selected_id in selected_ids
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"]
+    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"])
 
 print("TOTAL PRICE: " + str(total_price))
+
 # A grocery store name of your choice
 # A grocery store phone number and/or website URL and/or address of choice
 # The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
@@ -66,37 +69,3 @@ print("TOTAL PRICE: " + str(total_price))
 # The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
 # The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
 # A friendly message thanking the customer and/or encouraging the customer to shop again
-
-while True:
-    # ASK FOR USER INPUT
-
-    product_id = input("Please input a product identifier: ")
-    print(product_id) #> "9"
-    print(type(product_id)) #> string
-
-    if product_id =="DONE":
-        break
-    
-    # LOOK UP CORRESPONDING PRODUCTS
-
-    # print product that has an ide attribute equal to "9"
-
-    matching_products = []
-
-    for x in products:
-        #if x== 3:
-        #    ___.append(X)
-        #print(x)
-        #print(x["id"])
-        if str(x["id"]) == str(product_id):
-            # this is a match
-            matching_products.append(x)
-
-print(matching_products)
-print(type(matching_products))
-print(len(matching_products))
-# print the name of the matching product
-matching_product =matching_products[0]
-print(matching_product["name"], matching_product["price"])
-
-
