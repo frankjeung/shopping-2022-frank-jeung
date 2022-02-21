@@ -1,7 +1,7 @@
 # shopping_cart.py
 # Received help from https://www.youtube.com/watch?v=3BaGb-1cIr0
 
-from re import X
+
 
 
 products = [
@@ -50,13 +50,13 @@ selected_ids = []
 
 while True:
     x = False
-    selected_id = input("Please input a product identifier: ") #> "9" (string)
+    selected_id = input("Please input a product identifier, or 'DONE' if there are no more items: ") #> "9" (string)
     
     for n in products: 
         if str(n["id"]) == str(selected_id):
             x = True
 
-    if selected_id == "DONE":
+    if selected_id == "DONE" or selected_id == "done":
         break
     elif x == False:
         print("Hey, are you sure that product identifier is correct? Please try again!")        
@@ -70,6 +70,7 @@ while True:
 print("---------------------------------")
 print("TOTAL FOODS GROCERY")
 print("WWW.TOTAL-FOODS-GROCERY.COM")
+print("1.123.456.7890")
 
 print("---------------------------------")
 #Received help from https://stackoverflow.com/questions/1759455/how-can-i-account-for-period-am-pm-using-strftime
@@ -86,7 +87,14 @@ for selected_id in selected_ids:
 
 print("---------------------------------")
 print("SUBTOTAL: " + str(to_usd(total_price)))
-tax_owed = total_price*0.0875
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+tax_rate = os.getenv("TAX_RATE", default = 0.0875)
+tax_owed = total_price*float(tax_rate)
 print("TAX: " + str(to_usd(tax_owed)))
 total = total_price + tax_owed
 print("TOTAL: " + str(to_usd(total)))
