@@ -23,6 +23,19 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+#
+# INFO CAPTURE / INPUT
+#
+
+selected_id = input("Please input a product identifier") #. "9" (string)
+
+
+#
+# INFO DISPLAY / OTUPUT
+#
+
+
+
 # A grocery store name of your choice
 # A grocery store phone number and/or website URL and/or address of choice
 # The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
