@@ -34,33 +34,33 @@ Fourth, you should create an ".env" file that contains all of these environment 
 
 Laslty, you could use the sample HTML and test data to specifiy the structure of all emails
 
-#Sample HTML
-#<img src="https://www.shareicon.net/data/128x128/2016/05/04/759867_food_512x512.png">
-#
-#<h3>Hello this is your receipt</h3>
-#
-#<p>Date: {{human_friendly_timestamp}}</p>
-#
-#<ul>
-#{{#each products}}
-#	<li>You ordered: ... {{this.name}}</li>
-#{{/each}}
-#</ul>
-#
-#<p>Total: {{total_price_usd}}</p>
+Sample HTML
+     <img src="https://www.shareicon.net/data/128x128/2016/05/04/759867_food_512x512.png">
 
-#Sample Test Data
-#{
-#    "total_price_usd": "$99.99",
-#    "human_friendly_timestamp": "July 4th, 2099 10:00 AM",
-#    "products":[
-#        {"id": 100, "name": "Product 100"},
-#        {"id": 200, "name": "Product 200"},
-#        {"id": 300, "name": "Product 300"},
-#        {"id": 200, "name": "Product 200"},
-#        {"id": 100, "name": "Product 100"}
-#    ]
-#}
+    <h3>Hello this is your receipt</h3>
+
+    <p>Date: {{human_friendly_timestamp}}</p>
+
+    <ul>
+    {{#each products}}
+	    <li>You ordered: ... {{this.name}}</li>
+    {{/each}}
+    </ul>
+
+    <p>Total: {{total_price_usd}}</p>
+
+Sample Test Data
+    {
+        "total_price_usd": "$99.99",
+        "human_friendly_timestamp": "July 4th, 2099 10:00 AM",
+        "products":[
+            {"id": 100, "name": "Product 100"},
+            {"id": 200, "name": "Product 200"},
+            {"id": 300, "name": "Product 300"},
+            {"id": 200, "name": "Product 200"},
+            {"id": 100, "name": "Product 100"}
+        ]    
+    }
 
 
 Recieved help from https://github.com/prof-rossetti/intro-to-python/blob/main/notes/python/packages/sendgrid.md#email-templates 

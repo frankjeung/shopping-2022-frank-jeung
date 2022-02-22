@@ -1,8 +1,6 @@
 # shopping_cart.py
+
 # Received help from https://www.youtube.com/watch?v=3BaGb-1cIr0
-
-
-
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
